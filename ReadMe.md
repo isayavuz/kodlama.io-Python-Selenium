@@ -3,6 +3,7 @@
 @pytest.mark.parametrize:
 Bir testin parametrelendirilmesi, testi birden fazla girdi kümesine karşı çalıştırmak için yapılır. Bunu parametrize işaretçiyi kullanarak yapabiliriz.
 Örnek Kod:
+    
     import pytest
 
     @pytest.mark.parametrize("num, output",[(1,11),(2,22),(3,35),(4,44)])
@@ -31,6 +32,7 @@ Burada test bir girişi 11 ile çarpar ve sonucu beklenen çıktı ile karşıla
 @pytest.fixture:
 Uygulandığı her test fonksiyonundan önce çalışacak fonksiyonlardır. fixture, veritabanı bağlantıları, test edilecek URL'ler ve bir tür girdi verileri gibi bazı verileri testlere beslemek için kullanılır. Bu nedenle, her test için aynı kodu çalıştırmak yerine, testlere fixture işlevi ekleyebiliriz ve her testi gerçekleştirmeden önce çalışır ve verileri teste döndürür.
 Örnek Kod:
+    
     import pytest
 
     @pytest.fixture
@@ -65,14 +67,15 @@ Pytest, test yürütülürken, giriş parametresi olarak fixture adını görece
 @pytest.mark.skip:
 skip Bir test işlevini atlamanın en basit yolu, onu isteğe bağlı olarak geçirilebilecek dekoratörle işaretlemektir.
 Örnek Kod:
+    
     @pytest.mark.skip(reason="no way of currently testing this")
     def test_the_unknown():
-        ...
-
+     ...
 
 @pytest.mark.skipif:
 Koşullu olarak bir şeyi atlamak istiyorsanız, bunun skipif yerine kullanabilirsiniz. Python3.10'dan önceki bir yorumlayıcıda çalıştırıldığında atlanacak bir test işlevini işaretlemenin bir örneğini aşağıda bulabilirsiniz.
 Örnek Kod:
+    
     @pytest.mark.skipif(sys.version_info < (3, 10), reason="requires python3.10 or higher")
     def test_function():
-        ...
+     ...
